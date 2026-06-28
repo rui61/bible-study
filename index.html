@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0a">
+    <title id="pageTitle">圣经学习 Wiki</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap">
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a href="#" class="topbar-logo" data-page="home">圣经学习</a>
+            <nav class="topbar-nav">
+                <a href="#" data-page="home">首页</a>
+                <a href="#" data-page="toc">目录</a>
+                <a href="#" data-page="cards">疑问</a>
+                <a href="#" data-page="tags">搜索</a>
+            </nav>
+            <button class="lang-btn" id="langToggle">EN</button>
+        </div>
+    </header>
+
+    <main class="views">
+        <div class="view active" id="view-home">
+            <section class="hero">
+                <div class="hero-body">
+                    <div class="hero-cover">
+                        <div class="hero-cover-inner">圣经</div>
+                    </div>
+                    <div class="hero-text">
+                        <h1>圣经学习 Wiki</h1>
+                        <p class="hero-sub">逐卷研经 · 卡片提炼 · 系统整理</p>
+                        <p class="hero-author">Yaron（野人）</p>
+                        <a href="#" class="btn" data-page="toc">开始阅读</a>
+                        <p style="margin-top:16px;font-size:13px;color:#5a4e35;"><span class="hero-from">从 <a href="#" data-page="toc" style="color:#7a6a4a;text-decoration:underline;">前言</a> 开始</span></p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="view" id="view-toc">
+            <section class="section-page">
+                <div class="page-inner page-narrow">
+                    <h2 class="page-title">圣经卷章目录</h2>
+                    <div class="toc-tree" id="tocTree"></div>
+                </div>
+            </section>
+        </div>
+
+        <div class="view" id="view-cards">
+            <section class="section-page">
+                <div class="page-inner page-narrow">
+                    <h2 class="page-title">疑问解答</h2>
+                    <p class="page-desc">研经过程中已解决的困惑与疑难。</p>
+                    <div class="card-filters" id="cardFilterTags"></div>
+                    <div class="card-grid" id="cardGrid"></div>
+                </div>
+            </section>
+        </div>
+
+        <div class="view" id="view-tags">
+            <section class="search-page">
+                <div class="page-inner page-narrow">
+                    <div class="search-hero">
+                        <h2 class="search-title" id="searchTitle">搜索全书</h2>
+                        <div class="search-bar">
+                            <input type="text" id="searchInput" placeholder="输入关键词搜索研经笔记和卡片…" autocomplete="off">
+                        </div>
+                        <p class="search-hint">搜索全部 66 卷的笔记内容和知识卡片</p>
+                    </div>
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+            </section>
+        </div>
+
+        <div class="view view-read" id="view-read">
+            <section class="read-page">
+                <div class="read-top">
+                    <a href="#" class="read-back" data-page="toc">← 目录</a>
+                    <span class="read-position" id="readPosition">1 / 66</span>
+                </div>
+                <div class="read-body">
+                    <h2 class="read-chapter-title" id="readChapterTitle"></h2>
+                    <div class="read-content" id="readContent"></div>
+                    <div class="read-tts">
+                        <button id="ttsBtn" class="tts-btn">🔊 听本章</button>
+                        <span class="tts-status" id="ttsStatus"></span>
+                    </div>
+                </div>
+                <div class="read-bottom">
+                    <div class="read-progress">
+                        <div class="read-progress-bar" id="readProgressBar"></div>
+                    </div>
+                    <div class="read-nav">
+                        <button class="read-nav-btn" id="prevBtn">← 上一卷</button>
+                        <span class="read-percent" id="readPercent">0%</span>
+                        <button class="read-nav-btn" id="nextBtn">下一卷 →</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer" id="mainFooter">
+        <div class="page-inner">
+            <p>© 2026 圣经学习 Wiki · Yaron（野人）</p>
+        </div>
+    </footer>
+
+    <script src="book-data.js"></script>
+    <script src="book-data-en.js"></script>
+    <script src="card-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -310,7 +310,7 @@ function renderCards() {
   const grid = document.getElementById('cardGrid');
   const filterTags = document.getElementById('cardFilterTags');
 
-  const qaCards = currentCardData.filter(c => c.category === '疑问问答' || c.category === 'Q&A');
+  const qaCards = currentCardData.filter(c => c.category === '疑问与张力' || c.category === 'Questions & Tension');
 
   const allTags = {};
   qaCards.forEach(c => (c.tags || []).forEach(t => { allTags[t] = (allTags[t] || 0) + 1; }));

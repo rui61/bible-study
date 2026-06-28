@@ -339,6 +339,7 @@ function renderCards() {
         <span class="card-item-cat">${c.category}</span>
       </div>
       <div class="card-item-title qa-question">${escHtml(c.question)}</div>
+      <button class="qa-tts-btn" data-idx="${idx}">🔊</button>
       <div class="card-item-body qa-answer" style="display:none">${escHtml(c.answer)}</div>
       ${verseHtml ? `<div class="qa-verses" style="display:none">${verseHtml}</div>` : ''}
       <div class="card-item-tags qa-tags" style="display:none">${(c.tags || []).map(t => `<span class="card-tag">${t}</span>`).join('')}</div>
@@ -346,7 +347,8 @@ function renderCards() {
   });
   grid.innerHTML = html;
   grid.querySelectorAll('.qa-card').forEach(el => {
-    el.addEventListener('click', function () {
+    el.addEventListener('click', function (e) {
+      if (e.target.closest('.qa-tts-btn')) return;
       const answer = this.querySelector('.qa-answer');
       const verses = this.querySelector('.qa-verses');
       const tags = this.querySelector('.qa-tags');
@@ -355,6 +357,23 @@ function renderCards() {
       if (verses) verses.style.display = isHidden ? 'block' : 'none';
       if (tags) tags.style.display = isHidden ? 'flex' : 'none';
       this.classList.toggle('qa-open', isHidden);
+    });
+  });
+  grid.querySelectorAll('.qa-tts-btn').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      const idx = parseInt(this.dataset.idx);
+      const c = filtered[idx];
+      if (!c) return;
+      stopTts();
+      const text = c.question + '。' + (c.answer || '');
+      const lang = currentLang === 'en' ? 'en-US' : 'zh-CN';
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = lang;
+      utterance.rate = lang === 'zh-CN' ? 0.8 : 0.9;
+      const voice = getBestVoice(lang);
+      if (voice) utterance.voice = voice;
+      speechSynthesis.speak(utterance);
     });
   });
 }

@@ -471,6 +471,17 @@ document.addEventListener('keydown', function (e) {
 // TTS
 const ttsState = { playing: false, paused: false, chapterIdx: -1 };
 
+function getBestVoice(lang) {
+  const voices = speechSynthesis.getVoices();
+  if (lang === 'zh-CN') {
+    return voices.find(v => v.name.includes('Yaoyao'))
+      || voices.find(v => v.name.includes('Huihui'))
+      || voices.find(v => v.lang.startsWith('zh'))
+      || null;
+  }
+  return voices.find(v => v.lang.startsWith('en')) || null;
+}
+
 function stripHtml(html) {
   const d = document.createElement('div');
   d.innerHTML = html;
@@ -492,9 +503,12 @@ function speakChapter(index) {
     document.getElementById('ttsStatus').textContent = t('noVerse');
     return;
   }
+  const lang = currentLang === 'en' ? 'en-US' : 'zh-CN';
   const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = currentLang === 'en' ? 'en-US' : 'zh-CN';
-  utterance.rate = 0.9;
+  utterance.lang = lang;
+  utterance.rate = lang === 'zh-CN' ? 0.8 : 0.9;
+  const voice = getBestVoice(lang);
+  if (voice) utterance.voice = voice;
   utterance.onend = function () { ttsState.playing = false; ttsState.paused = false; ttsState.chapterIdx = -1; updateTtsUi(); };
   utterance.onpause = function () { ttsState.paused = true; updateTtsUi(); };
   utterance.onresume = function () { ttsState.paused = false; updateTtsUi(); };

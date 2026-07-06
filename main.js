@@ -1,9 +1,11 @@
 const PORTS = [
   { realm: "仙 界", cls: "xian", items: [
       { name: "神兽 Coco", host: "192.168.1.155", port: 8888, desc: "仙界护法 · 灵兽化身", status: "online", icon: "🐉" },
+      { name: "神兽 Mimi", host: "192.168.1.155", port: 8889, desc: "仙界使者 · 玉面灵狐", status: "online", icon: "🦊" },
   ]},
   { realm: "魔 界", cls: "mo", items: [
       { name: "魔兽 Coco", host: "100.118.137.117", port: 8888, desc: "魔界领主 · 混沌之源", status: "online", icon: "🐲" },
+      { name: "魔兽 Mimi", host: "100.118.137.117", port: 8889, desc: "魔界刺客 · 暗影之牙", status: "online", icon: "🐺" },
   ]},
 ];
 

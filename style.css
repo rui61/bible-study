@@ -328,6 +328,39 @@ main {
   z-index: 999;
 }
 
+.realm.mo .wall {
+  background: repeating-linear-gradient(135deg, #0e0808 0 8px, #1a0e0e 8px 16px);
+  border-color: #3a1a1a;
+}
+
+.realm.mo .gate:hover .wall {
+  border-color: #c94444;
+  box-shadow: 0 0 24px rgba(201,68,68,0.2);
+}
+
+.realm.mo .portal {
+  border-color: #6b2020;
+  background: radial-gradient(circle at 40% 35%, #2a0e0e, #050303 75%);
+}
+
+.realm.mo .gate:hover .portal {
+  border-color: #e86060;
+  box-shadow: 0 0 22px rgba(232,96,96,0.35), inset 0 0 20px rgba(180,60,60,0.15);
+}
+
+.realm.mo .portal::after {
+  background: radial-gradient(ellipse 60% 30% at 50% 60%, rgba(200,60,60,0.18), transparent 70%);
+}
+
+.realm.mo .gate-port {
+  color: #e86060;
+}
+
+.realm.mo .seal.online {
+  background: #5a1010;
+  box-shadow: 0 0 8px rgba(90,16,16,0.6);
+}
+
 @media (max-width: 480px) {
   .head {
     flex-direction: column;

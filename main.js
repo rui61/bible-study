@@ -1,12 +1,12 @@
 const PORTS = [
-  { realm: "灵 脉 总 纲", items: [
+  { realm: "仙 界", cls: "xian", items: [
       { name: "Ollama", host: "localhost", port: 11434, desc: "本地模型推理", status: "online", icon: "⚔️" },
-      { name: "OpenRouter", host: "localhost", port: 8080, desc: "模型路由 API", status: "online", icon: "🌌" },
-      { name: "Baseten", host: "localhost", port: 8081, desc: "云端部署引擎", status: "online", icon: "🔥" },
-  ]},
-  { realm: "藏 经 阁", items: [
       { name: "GitLab", host: "localhost", port: 8929, desc: "代码仓库", status: "standby", icon: "📜" },
       { name: "Hugging Face", host: "localhost", port: 8082, desc: "开源社区 / 模型", status: "online", icon: "🌊" },
+  ]},
+  { realm: "魔 界", cls: "mo", items: [
+      { name: "OpenRouter", host: "localhost", port: 8080, desc: "模型路由 API", status: "online", icon: "🌌" },
+      { name: "Baseten", host: "localhost", port: 8081, desc: "云端部署引擎", status: "online", icon: "🔥" },
   ]},
 ];
 
@@ -15,7 +15,7 @@ function renderGates() {
   root.innerHTML = '';
   PORTS.forEach(section => {
     const sec = document.createElement('div');
-    sec.className = 'realm';
+    sec.className = `realm ${section.cls}`;
 
     const head = document.createElement('div');
     head.className = 'realm-head';

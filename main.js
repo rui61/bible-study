@@ -1,12 +1,9 @@
 const PORTS = [
   { realm: "仙 界", cls: "xian", items: [
-      { name: "Ollama", host: "localhost", port: 11434, desc: "本地模型推理", status: "online", icon: "⚔️" },
-      { name: "GitLab", host: "localhost", port: 8929, desc: "代码仓库", status: "standby", icon: "📜" },
-      { name: "Hugging Face", host: "localhost", port: 8082, desc: "开源社区 / 模型", status: "online", icon: "🌊" },
+      { name: "神兽 Coco", host: "192.168.1.155", port: 8888, desc: "仙界护法 · 灵兽化身", status: "online", icon: "🐉" },
   ]},
   { realm: "魔 界", cls: "mo", items: [
-      { name: "OpenRouter", host: "localhost", port: 8080, desc: "模型路由 API", status: "online", icon: "🌌" },
-      { name: "Baseten", host: "localhost", port: 8081, desc: "云端部署引擎", status: "online", icon: "🔥" },
+      { name: "魔兽 Coco", host: "100.118.137.117", port: 8888, desc: "魔界领主 · 混沌之源", status: "online", icon: "🐲" },
   ]},
 ];
 

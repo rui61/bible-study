@@ -3,72 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>九天星枢 | 个人端口矩阵</title>
-    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>九天星枢 · 端口矩阵</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- 视差云层背景 -->
-    <div class="parallax-bg layer-mountains"></div>
-    <div class="parallax-bg layer-clouds"></div>
 
-    <!-- Three.js 3D 容器 (法阵与粒子) -->
-    <canvas id="webgl-canvas"></canvas>
+<canvas id="bg-three"></canvas>
+<div class="parallax-layer clouds-far" data-depth="0.02"></div>
+<div class="parallax-layer clouds-near" data-depth="0.05"></div>
+<div class="parallax-layer mtn-far" data-depth="0.03"></div>
+<div class="parallax-layer mtn-near" data-depth="0.07"></div>
+<div class="parallax-layer palace" data-depth="0.10"></div>
 
-    <!-- 现代 UI 与书法结合的端口界面 -->
-    <main class="ui-container">
-        <header>
-            <h1 class="calligraphy-title">九天星枢</h1>
-            <p class="modern-subtitle">ALL SYSTEMS ONLINE // 灵气充盈</p>
-        </header>
+<div class="head">
+    <div class="head-title">
+        <div class="brand">九天星枢</div>
+        <div class="sub">ALL SYSTEMS ONLINE · 灵 气 充 盈</div>
+    </div>
+    <div class="head-clock">
+        <div class="shichen" id="shichen">—</div>
+        <div class="time" id="clockTime">--:--:--</div>
+    </div>
+</div>
 
-        <div class="ports-grid">
-            <!-- 将你的各个服务映射为仙侠风的阵眼 -->
-            <a href="#" class="port-card" data-hover="飞剑传书">
-                <div class="port-icon">⚔️</div>
-                <div class="port-info">
-                    <h2>剑冢 · 本地算力</h2>
-                    <span>Ollama Local Engine</span>
-                </div>
-            </a>
-            
-            <a href="#" class="port-card" data-hover="万法归宗">
-                <div class="port-icon">📜</div>
-                <div class="port-info">
-                    <h2>藏经阁 · 代码核心</h2>
-                    <span>GitLab Workspace</span>
-                </div>
-            </a>
+<main id="panelRoot"></main>
 
-            <a href="#" class="port-card" data-hover="星辰衍算">
-                <div class="port-icon">🌌</div>
-                <div class="port-info">
-                    <h2>星阵 · 模型路由</h2>
-                    <span>OpenRouter API</span>
-                </div>
-            </a>
+<div class="note">
+    <b>说明</b> — 每个法门对应一处服务，状态：online（朱印常明）、standby（金边虚印）、offline（灰边淡印）。
+</div>
 
-            <a href="#" class="port-card" data-hover="夺天地造化">
-                <div class="port-icon">🔥</div>
-                <div class="port-info">
-                    <h2>炼丹炉 · 云端部署</h2>
-                    <span>Baseten Cloud</span>
-                </div>
-            </a>
-
-            <a href="#" class="port-card" data-hover="海纳百川">
-                <div class="port-icon">🌊</div>
-                <div class="port-info">
-                    <h2>灵泉 · 开源社区</h2>
-                    <span>Hugging Face</span>
-                </div>
-            </a>
-        </div>
-    </main>
-
-    <!-- 引入 Three.js 和 GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
